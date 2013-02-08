@@ -12,20 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :nick_name %><br />
+    <%= f.label :nick_name %>
     <%= f.text_field :nick_name %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.label :description %>
+    <%= f.text_area :description, rows: 5 %>
   </div>
   <div class="field">
-    <%= f.label :birthday %><br />
-    <%= f.date_select :birthday %>
+    <%= f.label :birthday %>
+    <%= f.date_select :birthday, start_year: 1950, end_year: Time.now.year %>
   </div>
   <div class="actions">
     <%= f.submit %>
