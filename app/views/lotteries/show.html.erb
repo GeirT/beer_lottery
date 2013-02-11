@@ -18,7 +18,7 @@
     <li><%= user.name %></li>
   <% end %>
 </ul>
-<%= link_to 'Add or remove', contestants_lottery_path( @lottery )%>
+<p><%= link_to 'Add or remove', contestants_lottery_path( @lottery )%></p>
 
 <% unless @lottery.prizes.empty? %>
   <h2>Prizes</h2>
