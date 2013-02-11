@@ -1,0 +1,12 @@
+<h1><%= @lottery.title %></h1>
+<h2>Contestants</h2>
+
+<%= form_for @lottery do |f| %>
+  <div class="field">
+    <%= f.label :user_ids, 'Disse er med' %>
+    <%= f.collection_select :user_ids, @users, :id, :name,
+          {}, size: 10, multiple: true %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

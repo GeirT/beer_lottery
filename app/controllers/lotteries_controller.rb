@@ -1,4 +1,7 @@
 class LotteriesController < ApplicationController
+  before_filter :lookup, only: [:show, :new, :edit, :create, :update, :destroy, :contestants]
+  before_filter :lottery_contestants, only: [:contestants, :show]
+
   # GET /lotteries
   # GET /lotteries.json
   def index
@@ -13,8 +16,6 @@ class LotteriesController < ApplicationController
   # GET /lotteries/1
   # GET /lotteries/1.json
   def show
-    @lottery = Lottery.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @lottery }
@@ -24,8 +25,6 @@ class LotteriesController < ApplicationController
   # GET /lotteries/new
   # GET /lotteries/new.json
   def new
-    @lottery = Lottery.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @lottery }
@@ -34,15 +33,12 @@ class LotteriesController < ApplicationController
 
   # GET /lotteries/1/edit
   def edit
-    @lottery = Lottery.find(params[:id])
     @prizes = @lottery.prizes.new
   end
 
   # POST /lotteries
   # POST /lotteries.json
   def create
-    @lottery = Lottery.new(params[:lottery])
-
     respond_to do |format|
       if @lottery.save
         format.html { redirect_to @lottery, notice: 'Lottery was successfully created.' }
@@ -57,8 +53,6 @@ class LotteriesController < ApplicationController
   # PUT /lotteries/1
   # PUT /lotteries/1.json
   def update
-    @lottery = Lottery.find(params[:id])
-
     respond_to do |format|
       if @lottery.update_attributes(params[:lottery])
         format.html { redirect_to @lottery, notice: 'Lottery was successfully updated.' }
@@ -73,12 +67,26 @@ class LotteriesController < ApplicationController
   # DELETE /lotteries/1
   # DELETE /lotteries/1.json
   def destroy
-    @lottery = Lottery.find(params[:id])
     @lottery.destroy
 
     respond_to do |format|
       format.html { redirect_to lotteries_url }
       format.json { head :no_content }
     end
+  end
+
+  def contestants
+    @users = User.all
+  end
+
+
+  private
+
+  def lookup
+    @lottery = params[:id] ? Lottery.find( params[:id] ) : Lottery.new
+  end
+
+  def lottery_contestants
+    @contestants = @lottery.users
   end
 end

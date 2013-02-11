@@ -1,5 +1,8 @@
 BeerLottery::Application.routes.draw do
-  resources :lotteries, :users, :prizes
+  resources :users, :prizes
+  resources :lotteries do
+    get :contestants, on: :member
+  end
 
   root :to => 'lotteries#index'
 

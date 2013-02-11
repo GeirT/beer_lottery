@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @lottery.title %>
-</p>
+<h1><%= @lottery.title %></h1>
 
 <p>
   <b>Description:</b>
@@ -14,6 +11,14 @@
   <b>Due at:</b>
   <%= @lottery.due_at %>
 </p>
+
+<h2>Contestants</h2>
+<ul>
+  <% @contestants.each do |user| %>
+    <li><%= user.name %></li>
+  <% end %>
+</ul>
+<%= link_to 'Add or remove', contestants_lottery_path( @lottery )%>
 
 <% unless @lottery.prizes.empty? %>
   <h2>Prizes</h2>
