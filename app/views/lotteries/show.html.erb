@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @lottery.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @lottery.description %>
+</p>
+
+<p>
+  <b>Due at:</b>
+  <%= @lottery.due_at %>
+</p>
+
+<% unless @lottery.prizes.empty? %>
+  <h2>Prizes</h2>
+  <ul>
+    <% @lottery.prizes.each do |prize| %>
+      <li><%= prize.name %> <%= link_to 'edit', edit_prize_path( prize ) %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to 'Edit', edit_lottery_path(@lottery) %> |
+<%= link_to 'Back', lotteries_path %>

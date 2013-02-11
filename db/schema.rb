@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130208141218) do
+ActiveRecord::Schema.define(:version => 20130211103258) do
+
+  create_table "lotteries", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.date     "due_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "prizes", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "lottery_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "prizes", ["lottery_id"], :name => "index_prizes_on_lottery_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

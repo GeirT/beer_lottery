@@ -1,0 +1,31 @@
+<%= form_for(@lottery) do |f| %>
+  <%= render 'layouts/object_errors', object: @lottery %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, rows: 6 %>
+  </div>
+  <div class="field">
+    <%= f.label :due_at %>
+    <%= f.date_select :due_at %>
+  </div>
+
+  <% unless action_name == 'new' %>
+    <h3>Prizes</h3>
+    <%= f.fields_for :prizes do |builder| %>
+      <div class="field">
+        <%= builder.label :name %>
+        <%= builder.text_field :name %>
+        <%= builder.check_box :_destroy %> Remove
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

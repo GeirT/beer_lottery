@@ -1,0 +1,27 @@
+<h1>Listing lotteries</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Title</th>
+    <th><%= t('activerecord.attributes.lottery.description') %></th>
+    <th>Due at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lotteries.each do |lottery| %>
+  <tr>
+    <td><%= lottery.title %></td>
+    <td><%= lottery.description %></td>
+    <td><%= lottery.due_at %></td>
+    <td><%= link_to 'Show', lottery %></td>
+    <td><%= link_to 'Edit', edit_lottery_path(lottery) %></td>
+    <td><%= link_to 'Destroy', lottery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lottery', new_lottery_path %>
