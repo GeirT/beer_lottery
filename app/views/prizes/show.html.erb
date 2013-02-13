@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @prize.name %>
-</p>
+<h1><%= @prize.name %></h1>
 
 <p>
   <b>Description:</b>
@@ -16,5 +13,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_prize_path(@prize) %> |
-<%= link_to 'Back', prizes_path %>
+<%= link_to 'Edit prize', edit_prize_path(@prize) %> |
+<%= link_to 'All prizes', prizes_path %>

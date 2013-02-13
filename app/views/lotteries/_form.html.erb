@@ -14,7 +14,7 @@
     <%= f.date_select :due_at %>
   </div>
 
-  <% unless action_name == 'new' %>
+  <% unless %w( new create ).include? action_name %>
     <h3>Prizes</h3>
     <%= f.fields_for :prizes do |builder| %>
       <div class="field">

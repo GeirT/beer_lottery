@@ -29,5 +29,7 @@
   </ul>
 <% end %>
 
-<%= link_to 'Edit', edit_lottery_path(@lottery) %> |
-<%= link_to 'Back', lotteries_path %>
+<%= link_to 'Add new prizes', edit_lottery_path( @lottery ) %>
+
+<p><%= link_to 'Edit lottery', edit_lottery_path(@lottery) %> |
+<%= link_to 'All lotteries', lotteries_path %></p>
