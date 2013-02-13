@@ -1,5 +1,5 @@
 class LotteriesController < ApplicationController
-  before_filter :lookup, only: [:show, :new, :edit, :create, :update, :destroy, :contestants]
+  before_filter :lookup, only: [:show, :new, :edit, :update, :destroy, :contestants]
   before_filter :lottery_contestants, only: [:contestants, :show]
 
   # GET /lotteries
@@ -39,6 +39,8 @@ class LotteriesController < ApplicationController
   # POST /lotteries
   # POST /lotteries.json
   def create
+    @lottery = Lottery.new params[:lottery]
+
     respond_to do |format|
       if @lottery.save
         format.html { redirect_to @lottery, notice: 'Lottery was successfully created.' }
