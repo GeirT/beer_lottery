@@ -5,7 +5,8 @@ source 'https://rubygems.org'
 # no version, updates to latest (unstable)
 # Gemfile.lock has control of the gem versions. When you change this, verify that the gem updates are OK, it will affect everybody.
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.12'
+gem 'json', '~> 1.7.7'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
