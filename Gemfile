@@ -1,23 +1,25 @@
 source 'https://rubygems.org'
 
+# ~> updates y in 1.0.y  (recommended)
+# => updates x and y in 1.x.y
+# no version, updates to latest (unstable)
+# Gemfile.lock has control of the gem versions. When you change this, verify that the gem updates are OK, it will affect everybody.
+
 gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 
+gem 'pg'
 gem 'devise'
 gem 'bootstrap-sass', '~> 2.2.2.0'
 
 group :test, :development do
-  gem 'sqlite3'
   gem "rspec-rails", "~> 2.0"
   gem 'factory_girl_rails'
 end
 
-group :production do
-  gem 'pg'
-end
 
 # Gems used only for assets and not required
 # in production environments by default.
