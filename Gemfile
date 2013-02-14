@@ -15,6 +15,10 @@ gem 'pg'
 gem 'devise'
 gem 'bootstrap-sass', '~> 2.2.2.0'
 
+group :production do
+  gem 'unicorn'
+end
+
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
   gem 'factory_girl_rails'
