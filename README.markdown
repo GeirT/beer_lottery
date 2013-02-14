@@ -15,6 +15,9 @@ in your shell:
 I could probably have disabled basic auth in development mode
 but I haven't looked into that.
 
+If you're on OSX and are using the Pow server,
+add those settings to your ~/.powconfig file.
+
 
 ### Get all gems, and load the database schema
 Then run these commands from the app root
